@@ -1,0 +1,23 @@
+.container {
+    
+    border-radius: 5px;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+/* }
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+} */
+
+/* .Appbar{
+    background-color: bisque;
+} */
+
+
+
+

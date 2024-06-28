@@ -1,0 +1,74 @@
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the start (top) */
+    min-height: 100vh;
+    background-color: inherit;
+    padding: 20px;
+    padding-top: 10px; /* Add some padding at the top */
+  }
+  
+  .contact-form {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    width: 100%;
+    max-width: 500px;
+    backdrop-filter: blur(10px); /* Blur effect for a frosted glass look */
+    transition: transform 0.3s ease; /* Smooth transition for interactions */
+  }
+  
+  .contact-form:hover {
+    transform: scale(1.02); /* Slight scale up on hover */
+  }
+  
+  .contact-form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .contact-form .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333; /* Darker color for labels */
+  }
+  
+  .contact-form .form-group input,
+  .contact-form .form-group textarea {
+    width: 100%;
+    padding: 12px 12px 12px 1px; /* Padding on all sides with more on the right */
+    border: 1px solid #ccc; /* Lighter border color */
+    border-radius: 8px;
+    font-size: 16px; /* Larger font size */
+    transition: border-color 0.3s ease;
+  }
+  
+  .contact-form .form-group input:focus,
+  .contact-form .form-group textarea:focus {
+    border-color: #007bff; /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+  }
+  
+  .contact-form .form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 100px; /* Minimum height for the textarea */
+  }
+  
+  .contact-form .form-group input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 12px 12px 12px 5px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  }
+  
+  .contact-form .form-group input[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Slightly raise button on hover */
+  }
+  
