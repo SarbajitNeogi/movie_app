@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.movie.entity.Film;
+import com.movie.repository.FilmActorDAO;
 import com.movie.repository.FilmDAO;
 import com.movie.request.FilmRequest;
 
@@ -107,11 +108,7 @@ public class FilmServiceImpl implements FilmService{
 			film.setReleaseyear(request.getReleaseyear());
 			film.setLength(request.getLength());
 			filmdao.save(film);
-			}
-	
-		
-		
-		
+			}		
 		
 		
 		

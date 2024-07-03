@@ -9,6 +9,19 @@ import jakarta.persistence.*;
 
 
 @Entity
+//@SqlResultSetMapping(
+//	    name = "FilmActorDTOMapping",
+//	    classes = @ConstructorResult(
+//	        targetClass = FilmActorDTO.class,
+//	        columns = {
+//	            @ColumnResult(name = "filmId", type = Long.class),
+//	            @ColumnResult(name = "title", type = String.class),
+//	            @ColumnResult(name = "actorId", type = Long.class),
+//	            @ColumnResult(name = "firstName", type = String.class),
+//	            @ColumnResult(name = "lastName", type = String.class)
+//	        }
+//	    )
+//	)
 @SQLDelete(sql = "UPDATE film SET deleted = true WHERE film_id = ?")
 //@Where(clause = "deleted = false")
 @Table(name = "film")
