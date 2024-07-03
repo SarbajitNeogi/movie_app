@@ -65,7 +65,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const drawerWidth = 180; // Adjusted width
+const drawerWidth = 130; // Adjusted width
 const navItems = [
   { text: "Home", icon: <HomeOutlined />, link: "/" },
   { text: "About", icon: <InfoOutlined />, link: "/about" },

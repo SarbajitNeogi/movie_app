@@ -1,11 +1,13 @@
 .container {
-    
+     position: relative;
     border-radius: 5px;
     height: 600px;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     justify-content: center;
     margin-top: 5px;
+    top: 10px;
+    left:40px
 }
 /* }
 .container {
