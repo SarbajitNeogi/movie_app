@@ -66,6 +66,16 @@ const FilmGrid = ({
       editable: true,
     },
     {
+      field: "firstName",
+      headerName: "First Name",
+      width: 150,
+    },
+    {
+      field: "lastName",
+      headerName: "Last Name",
+      width: 150,
+    },
+    {
       field: "actions",
       type: "actions",
       headerName: "Actions",
@@ -314,24 +324,43 @@ const FilmGrid = ({
   };
 
   useEffect(() => {
-    async function fetchFilmData() {
-      const apiUrl = "http://localhost:8081/getAllFilm";
+    async function fetchData() {
+      const filmApiUrl = "http://localhost:8081/getAllFilm";
+      const actorApiUrl = "http://localhost:8081/getAllActors";
+  
       try {
-        const response = await axios.get(apiUrl);
-        console.log(response.data);
-        const dataWithIds = response.data.map((item, index) => ({
+        const [filmResponse, actorResponse] = await Promise.all([
+          axios.get(filmApiUrl),
+          axios.get(actorApiUrl),
+        ]);
+  
+        const filmsWithIds = filmResponse.data.map((item, index) => ({
           ...item,
           id: index + 1,
         }));
-        setFilm(dataWithIds);
-        setRows(dataWithIds);
-      } catch (err) {
-        console.error("Error fetching film data:", err);
+  
+        const actorsById = {};
+        actorResponse.data.forEach((actor) => {
+          actorsById[actor.filmId] = actorsById[actor.filmId] || [];
+          actorsById[actor.filmId].push(actor);
+        });
+  
+        const filmsWithActors = filmsWithIds.map((film) => ({
+          ...film,
+          firstName: actorsById[film.filmId]?.map((actor) => actor.firstName).join(", "),
+          lastName: actorsById[film.filmId]?.map((actor) => actor.lastName).join(", "),
+        }));
+  
+        setFilm(filmsWithActors);
+        setRows(filmsWithActors); // Ensure both film and rows state are updated
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
     }
+    fetchData();
 
-    if (Search == null || Search === "") {
-      fetchFilmData();
+    if (!Search || Search.length === 0) {
+      fetchData()
     } else {
       const dataWithIds = Search.map((item, index) => ({
         ...item,

@@ -92,9 +92,8 @@ const WatchedFilmsTracker = ({ watchedCount, FilmsCount }) => {
 
     fetchCompletedFilmsCount();
   }, []);
+
   const maxCount = Math.max(completedFilmsCount, FilmsCount);
-  console.log(maxCount);
-  console.log(FilmsCount);
 
   return (
     <Paper
@@ -102,14 +101,14 @@ const WatchedFilmsTracker = ({ watchedCount, FilmsCount }) => {
       sx={{
         p: 2,
         margin: "auto",
-        width: 400,
-        height: showData ? "auto" : 250, // Adjusted height when data is displayed
+        width: 300, // Adjusted width
+        height: showData ? "auto" : 200, // Adjusted height when data is displayed
         flexGrow: 1,
         backgroundColor: (theme) =>
           theme.palette.mode === "dark" ? "#1A2027" : "#e0e0e0",
         position: "fixed",
         top: 120, // Adjusted position
-        right: 80, // Adjusted position
+        right: 18, // Adjusted position
         zIndex: 9999,
         cursor: "pointer",
         boxShadow: 6,
@@ -122,9 +121,9 @@ const WatchedFilmsTracker = ({ watchedCount, FilmsCount }) => {
     >
       <Grid container spacing={2}>
         <Grid item>
-          <ButtonBase sx={{ width: 150, height: 150 }}>
+          <ButtonBase sx={{ width: 120, height: 120 }}>
             {" "}
-            {/* Increased size */}
+            {/* Adjusted size */}
             <StyledImg alt="film" src={Img} />{" "}
             {/* Use the imported image variable */}
           </ButtonBase>
@@ -145,9 +144,6 @@ const WatchedFilmsTracker = ({ watchedCount, FilmsCount }) => {
               >
                 Films Watched
               </Typography>
-              {/* <Typography variant="body2" color="text.secondary" sx={{ fontSize: '16px', fontFamily: 'Courier New, monospace', color: '#000' }}>
-                Total: {watchedCount}
-              </Typography> */}
               <Typography
                 variant="body2"
                 color="text.secondary"
@@ -184,7 +180,7 @@ const WatchedFilmsTracker = ({ watchedCount, FilmsCount }) => {
       </Grid>
       {showData && (
         <div
-          style={{ marginTop: "10px", maxHeight: "300px", overflowY: "auto" }}
+          style={{ marginTop: "10px", maxHeight: "150px", overflowY: "auto" }}
         >
           <div
             style={{
